@@ -3,4 +3,41 @@ wall of shields
 standing strong
 on this their chosen battlefield
 
-some text
+
+
+
+private void homework() {
+        List<String> names = new ArrayList<>();
+        names.add("Ivan");
+        names.add("Dan");
+        names.add("Peter");
+        names.add("Roland");
+        names.add("Tom");
+
+        System.out.println(names);
+
+        List<String> result = names.stream()
+                .filter(x -> (names.indexOf(x) % 2 == 0))
+                .map(s -> names.indexOf(s) + 1 + "." + s)
+                .collect(Collectors.toList());
+
+        System.out.println(result);
+
+        //Collections.reverse(names);
+
+        List<String> result2 = names.stream()
+                .map(String::toUpperCase)
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+
+        System.out.println(result2);
+
+        List<String> collection = Arrays.asList ("1, 2, 0", "4, 5");
+
+        List<String> result3 = collection.stream()
+                .flatMap(Stream::of)
+                .collect(Collectors.toList());
+
+        System.out.println(result3);
+
+    }
