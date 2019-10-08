@@ -41,3 +41,18 @@ private void homework() {
         System.out.println(result3);
 
     }
+    
+        public static <T> Stream<T> zip(Stream<T> first, Stream<T> second) {
+        Stream.Builder<T> sb = Stream.builder();
+
+        Set<Object> result = IntStream
+                .range(0, (int) Math.min(first.count(), second.count()))
+                .mapToObj(i -> {sb.accept(first.collect(Collectors.toList()).get(i));
+                               sb.accept(second.collect(Collectors.toList()).get(i));
+                return sb;})
+                .collect(Collectors.toCollection(TreeSet::new));
+
+        return sb.build();
+        }    
+    
+    
