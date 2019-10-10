@@ -56,3 +56,12 @@ private void homework() {
         }    
     
     
+     String names = "Alex Anna Dmitri Andrey Oksana";
+
+        List<String> str = Stream.of(names.split(" "))
+                .filter(x -> x.length() > 5)
+                .map(x -> x.toUpperCase())
+                .collect(Collectors.toList());
+
+        System.out.println(str);
+    
